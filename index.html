@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10050a"><title>ZAINIIII — A Birthday Surprise</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="noise"></div><div class="aurora"></div><div class="aurora b"></div>
+<main class="gate"><div class="gate-inner">
+ <div class="gate-monogram">A SECRET MADE WITH LOVE</div><p class="eyebrow">A LITTLE UNIVERSE, MADE JUST FOR YOU</p>
+ <div class="ornament"><span></span><i>✦</i><span></span></div>
+ <div class="gate-photo" aria-label="Round photo placeholder">
+   <span>ADD<br>YOUR PHOTO</span>
+ </div>
+ <h1>Hey, <em>ZAINIIII</em><span class="gold"> ♥</span></h1>
+ <p class="gate-copy">Something beautiful is waiting for you.</p><p class="gate-sub">Your special day is almost here.</p>
+ <div class="countdown" aria-live="polite"><div class="time-unit"><strong id="days">00</strong><span>DAYS</span></div><b class="colon">:</b><div class="time-unit"><strong id="hours">00</strong><span>HOURS</span></div><b class="colon">:</b><div class="time-unit"><strong id="minutes">00</strong><span>MINUTES</span></div><b class="colon">:</b><div class="time-unit"><strong id="seconds">00</strong><span>SECONDS</span></div></div>
+ <p id="gateNote" class="gate-note">A little more patience, beautiful things are worth waiting for.</p>
+ <button id="enterButton" class="lux-button" disabled><span>Enter Our Love Story</span><b class="heart">♥</b></button>
+ <p class="timezone">Unlocks at midnight · 26 November 2026 · Pakistan Standard Time</p>
+ <div class="gate-foot">✧ &nbsp; made with all my heart &nbsp; ✧</div>
+</div></main>
+<div id="petals" class="petals"></div>
+<script>
+const unlockAt=new Date("2026-11-25T19:00:00Z");
+const ids=["days","hours","minutes","seconds"];
+function tick(){let diff=Math.max(0,unlockAt-Date.now()),s=Math.floor(diff/1000),v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];ids.forEach((id,i)=>document.getElementById(id).textContent=String(v[i]).padStart(2,"0"));let ready=Date.now()>=unlockAt;document.getElementById("enterButton").disabled=!ready;document.getElementById("gateNote").textContent=ready?"Your moment is here. Your little universe is ready.":"A little more patience, beautiful things are worth waiting for.";if(ready&&!window.didReveal){window.didReveal=true;const root=document.getElementById("petals");for(let i=0;i<55;i++){let p=document.createElement("i");p.className="petal";p.style.left=Math.random()*100+"%";p.style.animationDuration=(5+Math.random()*8)+"s";p.style.animationDelay=(Math.random()*2)+"s";p.style.setProperty("--drift",(Math.random()*220-110)+"px");root.appendChild(p)}}}
+document.getElementById("enterButton").addEventListener("click",()=>{if(Date.now()>=unlockAt)location.href="home.html"});
+tick();setInterval(tick,1000);
+</script></body></html>
